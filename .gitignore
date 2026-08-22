@@ -1,0 +1,8 @@
+*.o
+pmake
+pmake.exe
+venv/
+.venv/
+*venv*/
+build/
+*.dSYM/
