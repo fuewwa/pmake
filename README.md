@@ -76,6 +76,7 @@ pmake <command> [arguments]
 | Command                   | Description                                                        |
 |----------------------------|---------------------------------------------------------------------|
 | `pmake init [name]`        | Create a virtual environment (default directory name: `venv`)       |
+| `pmake remove <pkg> [pkg...]` | Uninstall one or more packages from the virtual environment with pip |
 | `pmake activate [name]`    | Print the command to activate the virtual environment                |
 | `pmake deactivate`         | Print the command to deactivate the current virtual environment      |
 | `pmake add <pkg> [pkg...]` | Install one or more packages into the virtual environment with pip   |
@@ -90,6 +91,15 @@ Create a virtual environment named `venv` in the current directory:
 $ pmake init
 pmake: creating virtual environment 'venv'
 pmake: virtual environment 'venv' created
+```
+
+Remove a package from it:
+
+```
+$ pmake remove flask
+pmake: removing packages
+Found existing installation: Flask ...
+pmake: packages removed
 ```
 
 Create one with a custom name:

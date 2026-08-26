@@ -3,6 +3,7 @@
 #include "init.h"
 #include "activate.h"
 #include "add.h"
+#include "remove.h"
 #include "delete.h"
 
 static void print_usage(void)
@@ -13,6 +14,7 @@ static void print_usage(void)
     printf("  activate [name]    print the activation command\n");
     printf("  deactivate         print the deactivation command\n");
     printf("  add <packages...>  install packages into the virtual environment\n");
+    printf("  remove <packages...>  uninstall packages from the virtual environment\n");
     printf("  delete [name]      remove the virtual environment\n");
 }
 
@@ -34,6 +36,9 @@ int main(int argc, char **argv)
 
     if (strcmp(argv[1], "add") == 0)
         return add(argc, argv);
+
+    if (strcmp(argv[1], "remove") == 0)
+        return remove_packages(argc, argv);
 
     if (strcmp(argv[1], "delete") == 0)
         return delete_venv(argc, argv);
