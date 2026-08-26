@@ -76,10 +76,10 @@ pmake <command> [arguments]
 | Command                   | Description                                                        |
 |----------------------------|---------------------------------------------------------------------|
 | `pmake init [name]`        | Create a virtual environment (default directory name: `venv`)       |
-| `pmake remove <pkg> [pkg...]` | Uninstall one or more packages from the virtual environment with pip |
+| `pmake remove [--venv <name>] <pkg> [pkg...]` | Uninstall one or more packages from the virtual environment with pip |
 | `pmake activate [name]`    | Print the command to activate the virtual environment                |
 | `pmake deactivate`         | Print the command to deactivate the current virtual environment      |
-| `pmake add <pkg> [pkg...]` | Install one or more packages into the virtual environment with pip   |
+| `pmake add [--venv <name>] <pkg> [pkg...]` | Install one or more packages into the virtual environment with pip   |
 | `pmake delete [name]`      | Remove the virtual environment directory                             |
 | `pmake --help` / `-h`      | Show usage information                                               |
 

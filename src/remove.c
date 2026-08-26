@@ -7,9 +7,23 @@
 int remove_packages(int argc, char **argv)
 {
     const char *venv_name = "venv";
+    char *packages[argc];
+    int pkg_count = 0;
 
-    if (argc < 3) {
-        fprintf(stderr, "pmake: usage: pmake remove <package> [package...]\n");
+    for (int i = 2; i < argc; i++) {
+        if (strcmp(argv[i], "--venv") == 0 || strcmp(argv[i], "-n") == 0) {
+            if (i + 1 >= argc) {
+                fprintf(stderr, "pmake: %s requires a name\n", argv[i]);
+                return 1;
+            }
+            venv_name = argv[++i];
+            continue;
+        }
+        packages[pkg_count++] = argv[i];
+    }
+
+    if (pkg_count == 0) {
+        fprintf(stderr, "pmake: usage: pmake remove [--venv <name>] <package> [package...]\n");
         return 1;
     }
 
@@ -24,9 +38,9 @@ int remove_packages(int argc, char **argv)
     char command[2048];
     snprintf(command, sizeof(command), "\"%s\" uninstall -y", pip_path);
 
-    for (int i = 2; i < argc; i++) {
+    for (int i = 0; i < pkg_count; i++) {
         strncat(command, " ", sizeof(command) - strlen(command) - 1);
-        strncat(command, argv[i], sizeof(command) - strlen(command) - 1);
+        strncat(command, packages[i], sizeof(command) - strlen(command) - 1);
     }
 
     printf("pmake: removing packages\n");

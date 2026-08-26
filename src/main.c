@@ -13,8 +13,8 @@ static void print_usage(void)
     printf("  init [name]        create a virtual environment\n");
     printf("  activate [name]    print the activation command\n");
     printf("  deactivate         print the deactivation command\n");
-    printf("  add <packages...>  install packages into the virtual environment\n");
-    printf("  remove <packages...>  uninstall packages from the virtual environment\n");
+    printf("  add [--venv name] <packages...>  install packages into the virtual environment\n");
+    printf("  remove [--venv name] <packages...>  uninstall packages from the virtual environment\n");
     printf("  delete [name]      remove the virtual environment\n");
 }
 
