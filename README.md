@@ -160,18 +160,6 @@ function pmake {
 
 After adding this, `pmake activate` and `pmake deactivate` will behave exactly like running the underlying venv scripts by hand, while every other command (`init`, `add`, `delete`) is passed straight through to the real `pmake` binary.
 
-## Project layout
-
-```
-pmake/
-├── src/            C source files
-├── include/        C header files
-├── Makefile        Build, install and clean targets
-├── .gitignore
-├── .gitattributes
-└── README.md
-```
-
 ## Requirements
 
 - A working Python 3 installation with the `venv` module (included in the standard library).
