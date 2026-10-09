@@ -1,6 +1,5 @@
 pmake
 *.o
-pmake
 pmake.exe
 venv/
 .venv/
